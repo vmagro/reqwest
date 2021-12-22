@@ -183,7 +183,7 @@ impl ClientBuilder {
                 http2_keep_alive_while_idle: false,
                 local_address: None,
                 nodelay: true,
-                trust_dns: cfg!(feature = "trust-dns"),
+                trust_dns: cfg!(all(feature = "trust-dns", not(feature="trust-dns-optional"))),
                 #[cfg(feature = "cookies")]
                 cookie_store: None,
                 https_only: false,
